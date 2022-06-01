@@ -49,7 +49,7 @@ let overlays = {
 L.control.layers(baseMaps, overlays).addTo(map);
 
 // Accessing the GeoJSON URL
-let shootingData = "https://raw.githubusercontent.com/jrauschnot/gun_violence/main/gun_violence.geojson";
+let shootingData = "https://raw.githubusercontent.com/jrauschnot/gun_violence/main/Clean_final_gun_violence.geojson"
 
 // Retrieve the earthquake GeoJSON data.
 d3.json(shootingData).then(function (data) {
@@ -61,29 +61,29 @@ d3.json(shootingData).then(function (data) {
     return {
       opacity: 1,
       fillOpacity: 1,
-      fillColor: getColor(features.properties.total_victims),
+      fillColor: getColor(features.properties.total_victims_x),
       color: "#000000",
-      radius: getRadius(features.properties.total_victims),
+      radius: getRadius(features.properties.total_victims_x),
       stroke: true,
       weight: 0.5
     };
   }
 
   // This function determines the color of the marker based on the magnitude of the earthquake.
-  function getColor(total_victims) {
-    if (total_victims > 500) {
+  function getColor(total_victims_x) {
+    if (total_victims_x > 500) {
       return "#ea2c2c";
     }
-    if (total_victims > 100) {
+    if (total_victims_x > 100) {
       return "#ea822c";
     }
-    if (total_victims > 50) {
+    if (total_victims_x > 50) {
       return "#ee9c00";
     }
-    if (total_victims > 25) {
+    if (total_victims_x > 25) {
       return "#eecc00";
     }
-    if (total_victims > 10) {
+    if (total_victims_x > 10) {
       return "#d4ee00";
     }
     return "#98ee00";
@@ -91,11 +91,11 @@ d3.json(shootingData).then(function (data) {
 
   // This function determines the radius of the earthquake marker based on its magnitude.
   // Earthquakes with a magnitude of 0 were being plotted with the wrong radius.
-  function getRadius(total_victims) {
-    if (total_victims === 0) {
+  function getRadius(total_victims_x) {
+    if (total_victims_x === 0) {
       return 1;
     }
-    return total_victims / 4 ;
+    return total_victims_x / 4 ;
   }
 
   // Creating a GeoJSON layer with the retrieved data.
@@ -110,7 +110,7 @@ d3.json(shootingData).then(function (data) {
     // We create a popup for each circleMarker to display the magnitude and location of the earthquake
     // after the marker has been created and styled.
     onEachFeature: function (features, layer) {
-      layer.bindPopup("Total Injured: " + features.properties.total_victims + "<br>Location: " + features.properties.case + "<br>Date: " + features.properties.date);
+      layer.bindPopup("Total Injured: " + features.properties.total_victims_x + "<br>Location2: " + features.properties.city_state + "<br>Date: " + features.properties.date);
     }
   }).addTo(allGunViolence);
 
@@ -135,11 +135,11 @@ d3.json(shootingData).then(function (data) {
     ];
 
     // Looping through our intervals to generate a label with a colored square for each interval.
-    for (var i = 0; i < total_victims.length; i++) {
+    for (var i = 0; i < total_victims_x.length; i++) {
       console.log(colors[i]);
       div.innerHTML +=
         "<i style='background: " + colors[i] + "'></i> " +
-        total_victims[i] + (total_victims[i + 1] ? "&ndash;" + total_victims[i + 1] + "<br>" : "+");
+        total_victims_x[i] + (total_victims_x[i + 1] ? "&ndash;" + total_victims_x[i + 1] + "<br>" : "+");
     }
     return div;
   };
@@ -150,11 +150,11 @@ d3.json(shootingData).then(function (data) {
 
   // This function determines the radius of the earthquake marker based on its magnitude.
   // Earthquakes with a magnitude of 0 were being plotted with the wrong radius.
-  function getRadius(total_victims) {
-    if (total_victims >= 200) {
-      return total_victims / 10;
+  function getRadius(total_victims_x) {
+    if (total_victims_x >= 200) {
+      return total_victims_x / 10;
     }
-    return total_victims / 2;
+    return total_victims_x / 2;
   }
 
   // Creating a GeoJSON layer with the retrieved data.
@@ -169,7 +169,7 @@ d3.json(shootingData).then(function (data) {
     // We create a popup for each circleMarker to display the magnitude and location of the earthquake
     // after the marker has been created and styled.
     onEachFeature: function (features, layer) {
-      layer.bindPopup("Total Injured: " + total_victims + "<br>Location: " + features.properties.date);
+      layer.bindPopup("Total Injured: " + total_victims_x + "<br>Location: " + features.properties.city_state + "Date: " + features.properties.date);
     }
   }).addTo(allGunViolence);
 
