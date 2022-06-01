@@ -110,7 +110,7 @@ d3.json(shootingData).then(function (data) {
     // We create a popup for each circleMarker to display the magnitude and location of the earthquake
     // after the marker has been created and styled.
     onEachFeature: function (features, layer) {
-      layer.bindPopup("Total Injured: " + features.properties.total_victims_x + "<br>Location2: " + features.properties.city_state + "<br>Date: " + features.properties.date);
+      layer.bindPopup("Total Injured: " + features.properties.total_victims_x + "<br>Location: " + features.properties.city_state + "<br>Date: " + features.properties.date);
     }
   }).addTo(allGunViolence);
 
