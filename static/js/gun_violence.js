@@ -41,7 +41,7 @@ let allGunViolence = new L.LayerGroup();
 
 // 2. Add a reference to the tectonic plates group to the overlays object.
 let overlays = {
-  "All Mass Shootings": allGunViolence,
+  "Mass Shootings: Total Victims": allGunViolence,
 };
 
 // Then we add a control to the map that will allow the user to change which
@@ -49,7 +49,7 @@ let overlays = {
 L.control.layers(baseMaps, overlays).addTo(map);
 
 // Accessing the GeoJSON URL
-let shootingData = "https://raw.githubusercontent.com/jrauschnot/gun_violence/main/visualizations/Mother%20Jones%20-%20Mass%20Shootings%20Database%2C%201982%20-%202022%20-%20Sheet1%20(1).geojson?token=GHSAT0AAAAAABQTS67AUIB5JKMYV6SGLRGEYUT6MJQ";
+let shootingData = "https://raw.githubusercontent.com/jrauschnot/gun_violence/main/gun_violence.geojson";
 
 // Retrieve the earthquake GeoJSON data.
 d3.json(shootingData).then(function (data) {
@@ -110,7 +110,7 @@ d3.json(shootingData).then(function (data) {
     // We create a popup for each circleMarker to display the magnitude and location of the earthquake
     // after the marker has been created and styled.
     onEachFeature: function (features, layer) {
-      layer.bindPopup("Total Injured: " + features.properties.total_victims + "<br>Location: " + features.properties.case);
+      layer.bindPopup("Total Injured: " + features.properties.total_victims + "<br>Location: " + features.properties.case + "<br>Date: " + features.properties.date);
     }
   }).addTo(allGunViolence);
 
@@ -151,10 +151,10 @@ d3.json(shootingData).then(function (data) {
   // This function determines the radius of the earthquake marker based on its magnitude.
   // Earthquakes with a magnitude of 0 were being plotted with the wrong radius.
   function getRadius(total_victims) {
-    if (total_victims >= 500) {
+    if (total_victims >= 200) {
       return total_victims / 10;
     }
-    return total_victims / 4;
+    return total_victims / 2;
   }
 
   // Creating a GeoJSON layer with the retrieved data.
@@ -169,7 +169,7 @@ d3.json(shootingData).then(function (data) {
     // We create a popup for each circleMarker to display the magnitude and location of the earthquake
     // after the marker has been created and styled.
     onEachFeature: function (features, layer) {
-      layer.bindPopup("Total Injured: " + total_victims + "<br>Location: " + features.properties.case);
+      layer.bindPopup("Total Injured: " + total_victims + "<br>Location: " + features.properties.date);
     }
   }).addTo(allGunViolence);
 
