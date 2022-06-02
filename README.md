@@ -14,12 +14,12 @@ An analysis of gun violence in the United States of America.
 
 UVALDE, TX: 
 
-<img width="1126" alt="Screen Shot 2022-06-01 at 9 02 31 PM" src="https://user-images.githubusercontent.com/93015602/171550639-a406b9e3-d988-4fab-90db-780a587f8fda.png">
+<img width="1240" alt="Screen Shot 2022-06-02 at 10 14 33 AM" src="https://user-images.githubusercontent.com/93015602/171686764-e33d2efb-cfd7-4ef6-8ee9-6faaf56a6d12.png">
 
 PARKLAND, FL:
 
-<img width="1126" alt="Screen Shot 2022-06-01 at 9 09 17 PM" src="https://user-images.githubusercontent.com/93015602/171551271-1330b172-d989-428c-9a7c-ade3a7f3603b.png">
+<img width="1242" alt="Screen Shot 2022-06-02 at 10 14 43 AM" src="https://user-images.githubusercontent.com/93015602/171686769-f044bb00-0780-4e06-aef5-248f72c528ba.png">
 
 LAS VEGAS, NV: 
 
-<img width="1125" alt="Screen Shot 2022-06-01 at 9 07 04 PM" src="https://user-images.githubusercontent.com/93015602/171551061-ad36ead3-a5ce-49ce-ba45-2144e6e15131.png">
+<img width="1236" alt="Screen Shot 2022-06-02 at 10 14 23 AM" src="https://user-images.githubusercontent.com/93015602/171686773-8196ab08-f098-47a9-8533-f36a54131eb1.png">
