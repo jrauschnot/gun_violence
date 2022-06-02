@@ -49,7 +49,7 @@ let overlays = {
 L.control.layers(baseMaps, overlays).addTo(map);
 
 // Accessing the GeoJSON URL
-let shootingData = "https://raw.githubusercontent.com/jrauschnot/gun_violence/main/Clean_final_gun_violence.geojson"
+let shootingData = "https://raw.githubusercontent.com/jrauschnot/gun_violence/main/New_Clean_final_gun_violence.geojson"
 
 // Retrieve the earthquake GeoJSON data.
 d3.json(shootingData).then(function (data) {
@@ -71,19 +71,19 @@ d3.json(shootingData).then(function (data) {
 
   // This function determines the color of the marker based on the magnitude of the earthquake.
   function getColor(total_victims_x) {
-    if (total_victims_x > 500) {
+    if (total_victims_x > 100) {
       return "#ea2c2c";
     }
-    if (total_victims_x > 100) {
+    if (total_victims_x > 50) {
       return "#ea822c";
     }
-    if (total_victims_x > 50) {
+    if (total_victims_x > 25) {
       return "#ee9c00";
     }
-    if (total_victims_x > 25) {
+    if (total_victims_x > 10) {
       return "#eecc00";
     }
-    if (total_victims_x > 10) {
+    if (total_victims_x > 5) {
       return "#d4ee00";
     }
     return "#98ee00";
@@ -124,7 +124,7 @@ d3.json(shootingData).then(function (data) {
   legend.onAdd = function () {
     let div = L.DomUtil.create("div", "info legend");
 
-    total_victims = [0, 10, 25, 50, 100, 500];
+    total_victims_x = [0, 5, 10, 25, 50, 100];
     colors = [
       "#98ee00",
       "#d4ee00",
