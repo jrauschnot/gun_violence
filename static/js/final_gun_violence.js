@@ -49,7 +49,7 @@ let overlays = {
 L.control.layers(baseMaps, overlays).addTo(map);
 
 // Accessing the GeoJSON URL
-let shootingData = "https://raw.githubusercontent.com/jrauschnot/gun_violence/main/New_Clean_final_gun_violence.geojson"
+let shootingData = "https://raw.githubusercontent.com/jrauschnot/gun_violence/main/Last_Clean_final_gun_violence.geojson"
 
 // Retrieve the earthquake GeoJSON data.
 d3.json(shootingData).then(function (data) {
@@ -151,8 +151,8 @@ d3.json(shootingData).then(function (data) {
   // This function determines the radius of the earthquake marker based on its magnitude.
   // Earthquakes with a magnitude of 0 were being plotted with the wrong radius.
   function getRadius(total_victims_x) {
-    if (total_victims_x >= 200) {
-      return total_victims_x / 10;
+    if (total_victims_x >= 75) {
+      return total_victims_x / 20;
     }
     return total_victims_x / 2;
   }
